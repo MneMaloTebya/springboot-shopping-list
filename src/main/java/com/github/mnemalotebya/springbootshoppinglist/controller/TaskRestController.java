@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-public class ShoppingListRestController {
+public class TaskRestController {
 
     @Autowired
     private TaskService taskService;
@@ -31,8 +31,7 @@ public class ShoppingListRestController {
 
     @PostMapping("/tasks")
     public Task addTask(@RequestBody Task task) {
-        Task newTask = taskService.addTask(task);
-        return newTask;
+        return taskService.addTask(task);
     }
 
     @DeleteMapping("/tasks/{id}")

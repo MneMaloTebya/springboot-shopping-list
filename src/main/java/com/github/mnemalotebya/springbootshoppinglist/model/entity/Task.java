@@ -20,4 +20,8 @@ public class Task {
 
     @Column(name = "date", columnDefinition = "DATETIME", nullable = false)
     private LocalDateTime date;
+
+    public Task() {
+        setDate(LocalDateTime.now());
+    }
 }
