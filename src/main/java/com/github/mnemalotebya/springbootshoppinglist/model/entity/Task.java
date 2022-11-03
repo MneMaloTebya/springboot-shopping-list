@@ -4,6 +4,10 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+
+import static java.util.Objects.isNull;
 
 @Entity
 @Table(name = "tasks")
@@ -21,7 +25,11 @@ public class Task {
     @Column(name = "date", columnDefinition = "DATETIME", nullable = false)
     private LocalDateTime date;
 
+    @OneToMany(mappedBy = "task", cascade = CascadeType.ALL)
+    private List<Product> products;
+
     public Task() {
         setDate(LocalDateTime.now());
     }
+
 }

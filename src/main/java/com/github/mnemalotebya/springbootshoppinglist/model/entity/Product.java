@@ -26,4 +26,8 @@ public class Product {
     @Enumerated(EnumType.STRING)
     private StatusType statusType;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "task_id")
+    private Task task;
+
 }

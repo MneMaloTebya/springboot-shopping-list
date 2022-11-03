@@ -11,8 +11,12 @@ import java.util.Optional;
 @Service
 public class TaskServiceImpl implements TaskService{
 
-    @Autowired
     private TaskRepository taskRepository;
+
+    @Autowired
+    public TaskServiceImpl(TaskRepository taskRepository) {
+        this.taskRepository = taskRepository;
+    }
 
     @Override
     public List<Task> getAllTask() {
