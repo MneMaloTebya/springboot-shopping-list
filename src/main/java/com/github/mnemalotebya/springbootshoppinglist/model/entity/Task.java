@@ -22,10 +22,10 @@ public class Task {
     @Column(name = "description", columnDefinition = "VARCHAR(50)", nullable = false)
     private String description;
 
-    @Column(name = "date", columnDefinition = "DATETIME", nullable = false)
+    @Column(name = "date", columnDefinition = "DATETIME(6)", nullable = false)
     private LocalDateTime date;
 
-    @OneToMany(mappedBy = "task", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "task")
     private List<Product> products;
 
     public Task() {

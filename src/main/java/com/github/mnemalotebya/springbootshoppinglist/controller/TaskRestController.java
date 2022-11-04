@@ -44,8 +44,4 @@ public class TaskRestController {
         taskService.deleteAllTask();
     }
 
-    @PutMapping("/tasks")
-    public Task updateTask(@RequestBody Task task) {
-        return taskService.updateTask(task);
-    }
 }

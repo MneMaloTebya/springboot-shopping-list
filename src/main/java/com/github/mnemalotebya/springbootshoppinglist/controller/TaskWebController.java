@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class MyWebController {
+public class TaskWebController {
 
     @Autowired
     private TaskService taskService;
@@ -49,24 +49,15 @@ public class MyWebController {
         return "redirect:/taskList";
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/deleteTask/{id}")
     public String deleteTaskById(@PathVariable int id) {
         taskService.deleteTaskById(id);
         return "redirect:/taskList";
     }
 
-    @DeleteMapping("/deleteAll")
+    @DeleteMapping("/deleteAllTask")
     public String deleteAllTask() {
         taskService.deleteAllTask();
         return "redirect:/taskList";
-    }
-
-
-    // TODO: 03.11.2022 метод работает некорректно
-    @PutMapping("/updateTask")
-    public String updateTask(@RequestParam("taskId") int id, Model model) {
-        Task task = taskService.getTaskById(id);
-        model.addAttribute("task", task);
-        return "addTask";
     }
 }

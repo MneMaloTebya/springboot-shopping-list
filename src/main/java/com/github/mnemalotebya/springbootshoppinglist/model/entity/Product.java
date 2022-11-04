@@ -22,12 +22,7 @@ public class Product {
     @Column(name = "weight")
     private float weight;
 
-    @Column(name = "status", nullable = false)
-    @Enumerated(EnumType.STRING)
-    private StatusType statusType;
-
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "task_id")
     private Task task;
-
 }

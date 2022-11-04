@@ -11,12 +11,8 @@ import java.util.Optional;
 @Service
 public class TaskServiceImpl implements TaskService{
 
-    private TaskRepository taskRepository;
-
     @Autowired
-    public TaskServiceImpl(TaskRepository taskRepository) {
-        this.taskRepository = taskRepository;
-    }
+    private TaskRepository taskRepository;
 
     @Override
     public List<Task> getAllTask() {
@@ -47,10 +43,5 @@ public class TaskServiceImpl implements TaskService{
     @Override
     public void deleteAllTask() {
         taskRepository.deleteAll();
-    }
-
-    @Override
-    public Task updateTask(Task task) {
-        return taskRepository.save(task);
     }
 }

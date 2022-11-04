@@ -10,5 +10,4 @@ public interface TaskService {
     Task addTask(Task task);
     void deleteTaskById(int id);
     void deleteAllTask();
-    Task updateTask(Task task);
 }
