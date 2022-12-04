@@ -23,6 +23,6 @@ public class Product {
     private float weight;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "task_id")
+    @JoinColumn(name = "task_id", nullable = false)
     private Task task;
 }
