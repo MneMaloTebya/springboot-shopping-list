@@ -16,7 +16,6 @@ public class Task {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private int id;
 
     @Column(name = "description", columnDefinition = "VARCHAR(50)", nullable = false)
@@ -25,7 +24,11 @@ public class Task {
     @Column(name = "date", columnDefinition = "DATETIME(6)", nullable = false)
     private LocalDateTime date;
 
-    @OneToMany(mappedBy = "task")
+    @OneToMany(
+            mappedBy = "task",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private List<Product> products;
 
     public Task() {

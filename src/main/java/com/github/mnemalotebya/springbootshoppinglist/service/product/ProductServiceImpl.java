@@ -1,4 +1,4 @@
-package com.github.mnemalotebya.springbootshoppinglist.service;
+package com.github.mnemalotebya.springbootshoppinglist.service.product;
 
 import com.github.mnemalotebya.springbootshoppinglist.model.ProductRepository;
 import com.github.mnemalotebya.springbootshoppinglist.model.entity.Product;
@@ -10,31 +10,31 @@ import java.util.List;
 @Service
 public class ProductServiceImpl implements ProductService{
 
+    private final ProductRepository productRepository;
+
     @Autowired
-    private ProductRepository productRepository;
+    public ProductServiceImpl(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
 
     @Override
-    public List<Product> getAllProductByTaskId(int id) {
+    public List<Product> findAllByTaskId(int id) {
         return productRepository.findAllByTaskId(id);
     }
 
     @Override
-    public Product addProduct(Product product) {
-        return productRepository.save(product);
+    public void save(Product product) {
+        productRepository.save(product);
     }
 
     @Override
-    public List<Product> getAllProducts() {
-        return productRepository.findAll();
-    }
-
-    @Override
-    public void deleteProductById(int id) {
+    public void delete(int id) {
         productRepository.deleteById(id);
     }
 
     @Override
-    public void deleteAllProduct() {
+    public void deleteAll() {
         productRepository.deleteAll();
     }
 }
